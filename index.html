@@ -3,159 +3,352 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tecnoaventuras | Carrera de Informática</title>
+    <title>Tecnoaventuras | Informática & IA</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
     <style>
-        body { font-family: 'Poppins', sans-serif; background-color: #f8f9fa; }
-        .hero { background: linear-gradient(135deg, #0d6efd 0%, #001233 100%); color: white; padding: 100px 0; }
-        .card-profile { border: none; border-radius: 15px; transition: transform 0.3s; }
-        .card-profile:hover { transform: translateY(-10px); }
-        /* Estilos del Chatbot */
-        #chat-widget { position: fixed; bottom: 20px; right: 20px; width: 300px; z-index: 1000; }
-        #chat-box { height: 300px; overflow-y: auto; background: white; border: 1px solid #ddd; display: none; }
-        .bot-msg { background: #e9ecef; padding: 8px; border-radius: 10px; margin-bottom: 5px; font-size: 0.9rem; }
-        .user-msg { background: #0d6efd; color: white; padding: 8px; border-radius: 10px; margin-bottom: 5px; text-align: right; font-size: 0.9rem; }
+        :root {
+            --primary-color: #00f2fe;
+            --secondary-color: #4facfe;
+            --dark-blue: #0b0e14;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7f6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, .navbar-brand { font-family: 'Orbitron', sans-serif; }
+        h1 { font-size: clamp(1.8rem, 5vw, 3.5rem); }
+        h2 { font-size: clamp(1.4rem, 4vw, 2.2rem); }
+
+        .navbar {
+            background: rgba(11, 14, 20, 0.95) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+            url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            min-height: 60vh;
+            padding: 60px 20px;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .page-content {
+            display: none;
+            padding: 60px 15px;
+            min-height: 70vh;
+        }
+
+        .active-page {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .list-group-item {
+            cursor: pointer;
+            transition: 0.3s;
+            border-left: 5px solid transparent;
+        }
+
+        .list-group-item:hover {
+            transform: translateX(10px);
+            border-left: 5px solid var(--primary-color);
+            background-color: #f0fcff;
+        }
+
+        /* BOT */
+        #bot-container { position: fixed; bottom: 15px; right: 15px; z-index: 9999; }
+        #chat-window {
+            width: 350px;
+            max-width: 95vw;
+            height: 420px;
+            display: none;
+            flex-direction: column;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            overflow: hidden;
+        }
+
+        .chat-body { flex: 1; overflow-y: auto; padding: 15px; background: #f8f9fa; }
+        .msg { margin-bottom: 10px; padding: 10px 14px; border-radius: 15px; font-size: 0.9rem; max-width: 80%; }
+        .bot-msg { background: var(--secondary-color); color: white; }
+        .user-msg { background: #e0e0e0; margin-left: auto; }
+
+        footer { background: var(--dark-blue); color: white; padding: 40px 0; margin-top: 40px; }
+        .lab-image { width: 100%; max-height: 300px; object-fit: cover; border-radius: 15px; }
     </style>
 </head>
+
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#"><i class="bi bi-cpu"></i> TECNOAVENTURAS</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#perfil">Perfil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#actividades">Actividades</a></li>
-                    <li class="nav-item"><a class="btn btn-primary ms-lg-3" href="#">¡Inscríbete!</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand text-info" href="#" onclick="showPage('inicio')">🚀 TECNOAVENTURAS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <header class="hero text-center">
-        <div class="container">
-            <h1 class="display-3 fw-bold">Domina el Futuro con Informática</h1>
-            <p class="lead">Conviértete en un arquitecto de soluciones inteligentes en Tecnoaventuras.</p>
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto text-uppercase fw-bold">
+                <li class="nav-item"><a class="nav-link" onclick="showPage('perfil')">Perfil Académico</a></li>
+                <li class="nav-item"><a class="nav-link" onclick="showPage('actividades')">Actividades</a></li>
+                <li class="nav-item"><a class="nav-link" onclick="showPage('laboratorio')">Descripcion</a></li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-info ms-lg-3" href="http://www.itsacayucan.edu.mx/" target="_blank">Únete Ahora</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main id="inicio" class="page-content active-page">
+    <header class="hero-section">
+        <div class="container text-center">
+            <h1>La Informática es el nuevo superpoder</h1>
+            <p class="lead">Explora la Inteligencia Artificial y cambia el mundo en Tecnoaventuras.</p>
+            <button class="btn btn-info btn-lg mt-3" onclick="showPage('perfil')">Explorar Carrera</button>
         </div>
     </header>
+</main>
 
-    <section id="perfil" class="container py-5">
-        <h2 class="text-center mb-5">Perfil del Estudiante</h2>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card card-profile shadow-sm p-4 text-center">
-                    <i class="bi bi-lightbulb fs-1 text-primary"></i>
-                    <h5 class="mt-3">Pensamiento Lógico</h5>
-                    <p>Resolverás problemas complejos mediante algoritmos y matemáticas aplicadas.</p>
+<section id="perfil" class="page-content">
+    <div class="container">
+        <h2 class="text-center mb-5 border-bottom pb-3">Tu Perfil como Arquitecto de IA</h2>
+        <div class="row g-4 text-center">
+            <div class="col-md-6 col-lg-3">
+                <div class="p-4 bg-white shadow-sm rounded-4 h-100">
+                    <i class="bi bi-cpu fs-1 text-primary"></i>
+                    <h4 class="mt-3">Hardware & Software</h4>
+                    <p>Aprenderás cómo el silicio se convierte en pensamiento digital.</p>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card card-profile shadow-sm p-4 text-center">
-                    <i class="bi bi-code-square fs-1 text-primary"></i>
-                    <h5 class="mt-3">Desarrollo de Software</h5>
-                    <p>Dominarás lenguajes de última generación para crear aplicaciones globales.</p>
+            <div class="col-md-6 col-lg-3">
+                <div class="p-4 bg-white shadow-sm rounded-4 h-100">
+                    <i class="bi bi-graph-up-arrow fs-1 text-primary"></i>
+                    <h4 class="mt-3">Estadística Avanzada</h4>
+                    <p>La base de toda IA es saber interpretar los datos.</p>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card card-profile shadow-sm p-4 text-center">
-                    <i class="bi bi-shield-check fs-1 text-primary"></i>
-                    <h5 class="mt-3">Ética y Datos</h5>
-                    <p>Gestionarás información masiva con responsabilidad y seguridad.</p>
+            <div class="col-md-6 col-lg-3">
+                <div class="p-4 bg-white shadow-sm rounded-4 h-100">
+                    <i class="bi bi-code-slash fs-1 text-primary"></i>
+                    <h4 class="mt-3">Algoritmia</h4>
+                    <p>Diseño de soluciones lógicas para problemas complejos.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="actividades" class="bg-white py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">¿Qué harás en Tecnoaventuras?</h2>
-            <div class="table-responsive">
-                <table class="table table-hover align-middle">
-                    <thead class="table-primary">
-                        <tr>
-                            <th>Actividad</th>
-                            <th>Lo que lograrás</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Machine Learning</strong></td>
-                            <td>Entrenar modelos que aprenden de los datos automáticamente.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>NLP (Lenguaje Natural)</strong></td>
-                            <td>Crear bots que hablan y entienden a los humanos.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Visión Artificial</strong></td>
-                            <td>Enseñar a las computadoras a reconocer objetos mediante cámaras.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Ciberseguridad</strong></td>
-                            <td>Proteger sistemas contra ataques e intrusiones digitales.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <div id="chat-widget">
-        <div class="card shadow">
-            <div class="card-header bg-primary text-white d-flex justify-content-between">
-                <span><i class="bi bi-robot"></i> Asistente IA</span>
-                <button class="btn btn-sm text-white" onclick="toggleChat()"><i class="bi bi-chevron-down"></i></button>
-            </div>
-            <div id="chat-box" class="card-body p-2">
-                <div class="bot-msg">¡Hola! Soy el bot de Tecnoaventuras. Pregúntame sobre la carrera.</div>
-            </div>
-            <div class="card-footer p-1 d-flex">
-                <input type="text" id="user-input" class="form-control form-control-sm" placeholder="Escribe tu duda...">
-                <button class="btn btn-primary btn-sm ms-1" onclick="sendMessage()"><i class="bi bi-send"></i></button>
+            <div class="col-md-6 col-lg-3">
+                <div class="p-4 bg-white shadow-sm rounded-4 h-100">
+                    <i class="bi bi-eye fs-1 text-primary"></i>
+                    <h4 class="mt-3">Visión Artificial</h4>
+                    <p>Enseña a las máquinas a ver y entender su entorno.</p>
+                </div>
             </div>
         </div>
     </div>
+</section>
 
-    <footer class="bg-dark text-white text-center py-4">
-        <p>&copy; 2026 Tecnoaventuras - Facultad de Informática</p>
-    </footer>
+<section id="actividades" class="page-content">
+    <div class="container">
+        <h2 class="text-center mb-4">Lo que harás en Tecnoaventuras</h2>
+        <p class="text-center text-muted mb-5">Haz clic en una actividad para entrar al Laboratorio Virtual.</p>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="list-group">
+                    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrarLab('redes')">
+                        <i class="bi bi-diagram-3 fs-2 text-info"></i>
+                        <div>
+                            <h6 class="mb-0">Entrenamiento de Redes Neuronales</h6>
+                            <p class="mb-0 opacity-75">Crea modelos de aprendizaje profundo que imitan el cerebro humano.</p>
+                        </div>
+                    </div>
+                    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrarLab('ciberseguridad')">
+                        <i class="bi bi-shield-lock fs-2 text-info"></i>
+                        <div>
+                            <h6 class="mb-0">Ciberseguridad y Pentesting</h6>
+                            <p class="mb-0 opacity-75">Aprende a proteger y testear la seguridad de infraestructuras críticas.</p>
+                        </div>
+                    </div>
+                    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrarLab('vision')">
+                        <i class="bi bi-camera-video fs-2 text-info"></i>
+                        <div>
+                            <h6 class="mb-0">Visión por Computadora</h6>
+                            <p class="mb-0 opacity-75">Procesa imágenes en tiempo real para reconocimiento facial y objetos.</p>
+                        </div>
+                    </div>
+                    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrarLab('nlp')">
+                        <i class="bi bi-chat-left-dots fs-2 text-info"></i>
+                        <div>
+                            <h6 class="mb-0">Procesamiento de Lenguaje Natural (NLP)</h6>
+                            <p class="mb-0 opacity-75">Crea asistentes como TecnoBot que entienden el habla humana.</p>
+                        </div>
+                    </div>
+                    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrarLab('bigdata')">
+                        <i class="bi bi-database-fill-gear fs-2 text-info"></i>
+                        <div>
+                            <h6 class="mb-0">Big Data & Analytics</h6>
+                            <p class="mb-0 opacity-75">Analiza millones de datos para predecir tendencias globales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        function toggleChat() {
-            const box = document.getElementById('chat-box');
-            box.style.display = box.style.display === 'none' ? 'block' : 'none';
+<section id="laboratorio" class="page-content">
+    <div class="container">
+        <h2 class="text-center mb-4">🔬 Conoce mas de nuestras actividades </h2>
+        <div id="labContent" class="p-5 bg-white rounded shadow-lg border-top border-info border-5">
+            <div class="text-center py-5">
+                <i class="bi bi-pc-display-horizontal display-1 text-muted"></i>
+                <p class="mt-3 text-muted">No has seleccionado ninguna actividad todavía.<br>Ve a la sección de actividades y elige una.</p>
+                <button class="btn btn-outline-info mt-2" onclick="showPage('actividades')">Ver Actividades</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container text-center">
+        <h5>Tecnologico Superior de Acayucan</h5>
+        <p class="small opacity-75">Carretera costera del golfo km 216.4, Colonia Agricola Michapan, Acayucan, Mexico</p>
+        <div class="d-flex justify-content-center gap-3 fs-4">
+            <i class="bi bi-facebook"></i><i class="bi bi-linkedin"></i><i class="bi bi-github"></i>
+        </div>
+    </div>
+</footer>
+
+<div id="bot-container">
+    <div id="chat-window" class="card shadow">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            <span>🤖 TecnoBot</span>
+            <button class="btn btn-sm btn-close btn-close-white" onclick="toggleBot()"></button>
+        </div>
+        <div class="chat-body d-flex flex-column" id="chatMessages">
+            <div class="msg bot-msg">¡Hola! Soy TecnoBot. ¿En qué puedo ayudarte hoy?</div>
+        </div>
+        <div class="card-footer bg-white border-0">
+            <div class="input-group">
+                <input type="text" id="userInput" class="form-control" placeholder="Escribe 'becas', 'perfil'...">
+                <button class="btn btn-info" onclick="handleBotResponse()">Enviar</button>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-info rounded-circle shadow p-3 mt-2" onclick="toggleBot()">
+        <i class="bi bi-chat-dots-fill fs-3 text-white"></i>
+    </button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+function showPage(pageId) {
+    document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active-page'));
+    document.getElementById(pageId).classList.add('active-page');
+    window.scrollTo(0, 0);
+}
+
+function mostrarLab(tipo) {
+    showPage('laboratorio');
+    const lab = document.getElementById("labContent");
+
+    const contenidos = {
+        redes: {
+            titulo: "Entrenamiento de Redes Neuronales",
+            img: "https://images.unsplash.com/photo-1555949963-aa79dcee981c",
+            desc: "Aquí aprenderás a diseñar capas de neuronas artificiales. Utilizarás frameworks como TensorFlow o PyTorch para que la máquina aprenda a clasificar datos por sí sola."
+        },
+        ciberseguridad: {
+            titulo: "Ciberseguridad y Pentesting",
+            img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b",
+            desc: "Bienvenido al centro de operaciones de seguridad (SOC). En este lab simulamos ataques de fuerza bruta y SQL Injection para aprender a defender redes empresariales."
+        },
+        vision: {
+            titulo: "Visión por Computadora",
+            img: "https://images.unsplash.com/photo-1527430295725-49952119e5f5",
+            desc: "Abre los ojos de la IA. Aquí programamos algoritmos de OpenCV para detectar rostros, seguir objetos en movimiento y asistir en cirugías robóticas."
+        },
+        nlp: {
+            titulo: "Procesamiento de Lenguaje Natural",
+            img: "https://images.unsplash.com/photo-1546776310-eef45dd6d63c",
+            desc: "En este módulo, enseñamos a las máquinas a entender el contexto, el sarcasmo y los sentimientos detrás de un texto o audio."
+        },
+        bigdata: {
+            titulo: "Big Data & Analytics",
+            img: "https://images.unsplash.com/photo-1551288049-bbbda5402742",
+            desc: "Maneja volúmenes masivos de datos. Aprenderás Hadoop y Spark para extraer información valiosa de billones de registros en segundos."
         }
+    };
 
-        function sendMessage() {
-            const input = document.getElementById('user-input');
-            const chatBox = document.getElementById('chat-box');
-            if (input.value.trim() === "") return;
+    const info = contenidos[tipo];
+    
+    if (info) {
+        lab.innerHTML = `
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <img src="${info.img}" class="lab-image shadow mb-4 mb-md-0" alt="${info.titulo}">
+                </div>
+                <div class="col-md-6">
+                    <span class="badge bg-info text-dark mb-2">Entorno Virtual Activo</span>
+                    <h3 class="fw-bold">${info.titulo}</h3>
+                    <p class="text-secondary">${info.desc}</p>
+                    <hr>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" onclick="alert('Iniciando simulador virtual...')">
+                            <i class="bi bi-play-fill"></i> Iniciar Simulación
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+}
 
-            // Mensaje usuario
-            chatBox.innerHTML += `<div class="user-msg">${input.value}</div>`;
-            
-            // Respuesta lógica del Bot
-            let response = "Interesante pregunta. En Informática vemos eso y más. ¡Ven a Tecnoaventuras!";
-            const text = input.value.toLowerCase();
-            
-            if (text.includes("actividades")) response = "Hacemos IA, Visión Artificial y Big Data. ¡Revisa nuestra tabla en la página!";
-            if (text.includes("perfil")) response = "Buscamos personas creativas, con lógica y ganas de dominar el código.";
-            if (text.includes("tiempo") || text.includes("dura")) response = "La carrera suele durar entre 4 y 5 años de pura innovación.";
+function toggleBot() {
+    const chat = document.getElementById('chat-window');
+    chat.style.display = (chat.style.display === 'none' || chat.style.display === '') ? 'flex' : 'none';
+}
 
-            setTimeout(() => {
-                chatBox.innerHTML += `<div class="bot-msg">${response}</div>`;
-                chatBox.scrollTop = chatBox.scrollHeight;
-            }, 500);
+function handleBotResponse() {
+    const input = document.getElementById('userInput');
+    const chatMessages = document.getElementById('chatMessages');
+    const text = input.value.trim().toLowerCase();
+    if (text === "") return;
 
-            input.value = "";
-            chatBox.scrollTop = chatBox.scrollHeight;
-        }
-    </script>
+    chatMessages.innerHTML += `<div class="msg user-msg">${input.value}</div>`;
+
+    let reply = "Como IA en entrenamiento, aún no tengo esa respuesta. Pero te sugiero ver nuestras Actividades.";
+
+    if (text.includes("perfil")) reply = "Nuestro perfil busca mentes analíticas que dominen software y lógica.";
+    if (text.includes("actividades")) reply = "Tenemos Redes Neuronales, Visión Artificial, Big Data y más.";
+    if (text.includes("becas") || text.includes("precio")) reply = "Contamos con convenios y becas de excelencia. ¡Únete!";
+    if (text.includes("hola") || text.includes("buenos")) reply = "¡Hola! Bienvenido a Tecnoaventuras. ¿Qué área de la IA te interesa?";
+
+    setTimeout(() => {
+        chatMessages.innerHTML += `<div class="msg bot-msg">${reply}</div>`;
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }, 400);
+
+    input.value = "";
+}
+</script>
+
 </body>
 </html>
