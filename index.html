@@ -70,16 +70,32 @@
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
-s
+
+        /* --- ESTILOS RESPONSIVE PARA IMÁGENES LOCALES --- */
+        .img-container-full {
+            width: 100%;
+            background-color: #000;
+            line-height: 0; /* Elimina espacio extra debajo de la imagen */
+        }
+
         .img-full-screen {
             width: 100%;
             height: auto;
             display: block;
             object-fit: cover;
             image-rendering: -webkit-optimize-contrast;
-            image-rendering: auto;
         }
 
+        /* Ajustes para Móviles */
+        @media (max-width: 768px) {
+            .img-full-screen {
+                min-height: 350px; /* Asegura que la imagen sea protagonista en vertical */
+                object-position: center; /* Mantiene el centro de la foto visible */
+            }
+            .page-content { padding: 40px 0; }
+        }
+
+        /* --- RESTO DE ESTILOS --- */
         .card-info {
             border: none;
             border-top: 4px solid var(--secondary-color);
@@ -177,10 +193,14 @@ s
         <h2 class="text-center mb-5 border-bottom pb-3">Nuestra Institución</h2>
         <div class="row g-0">
             <div class="col-12">
-                <img src="imagen1.jpg" class="img-full-screen" alt="Conócenos 1">
+                <div class="img-container-full">
+                    <img src="imagen1.jpg" class="img-full-screen" alt="Conócenos 1">
+                </div>
             </div>
             <div class="col-12">
-                <img src="imagen2.jpg" class="img-full-screen" alt="Conócenos 2">
+                <div class="img-container-full">
+                    <img src="imagen2.jpg" class="img-full-screen" alt="Conócenos 2">
+                </div>
             </div>
         </div>
     </div>
@@ -361,7 +381,6 @@ function mostrarLab(tipo) {
     };
 
     const info = contenidos[tipo];
-    
     if (info) {
         lab.innerHTML = `
             <div class="row align-items-center">
@@ -392,10 +411,9 @@ function handleBotResponse() {
     chatMessages.innerHTML += `<div class="msg user-msg">${input.value}</div>`;
 
     let reply = "Como IA en entrenamiento, aún no tengo esa respuesta. Pero te sugiero ver nuestras Actividades.";
-
     if (text.includes("perfil")) reply = "Nuestro perfil busca mentes analíticas que dominen software y lógica.";
     if (text.includes("actividades")) reply = "Tenemos Redes Neuronales, Visión Artificial, Big Data y más.";
-    if (text.includes("becas") || text.includes("precio")) reply = "Contamos con inscripcion gratuita!!";
+    if (text.includes("becas") || text.includes("precio")) reply = "Contamos con inscripción gratuita!!";
     if (text.includes("hola") || text.includes("buenos")) reply = "¡Hola! Bienvenido a Tecnoaventuras. ¿Qué área te interesa?";
 
     setTimeout(() => {
@@ -409,3 +427,4 @@ function handleBotResponse() {
 
 </body>
 </html>
+
