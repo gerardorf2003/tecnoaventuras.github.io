@@ -71,7 +71,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-
+        /* --- FIX DEFINITIVO DE IMÁGENES RESPONSIVE --- */
         .img-container-full {
             width: 100%;
             background-color: #f4f7f6;
@@ -81,20 +81,22 @@
 
         .img-full-screen {
             width: 100%;
-            height: auto;
+            height: auto; /* IMPORTANTE: La altura se ajusta sola para no cortar la imagen */
             display: block;
-            object-fit: contain; 
+            object-fit: contain; /* Asegura que la imagen quepa completa */
             image-rendering: -webkit-optimize-contrast;
         }
 
         @media (max-width: 768px) {
             .page-content { padding: 30px 0; }
+            /* Agregamos una sombra suave para separar las fotos en móvil */
             .img-full-screen {
-                border-bottom: 2px solid #ddd; 
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                margin-bottom: 10px;
             }
         }
 
-     
+        /* --- ESTILOS DE COMPONENTES --- */
         .card-info {
             border: none;
             border-top: 4px solid var(--secondary-color);
@@ -117,7 +119,7 @@
             background-color: #f0fcff;
         }
 
-    
+        /* --- BOT Y CHAT --- */
         #bot-container { position: fixed; bottom: 15px; right: 15px; z-index: 9999; }
         #chat-window {
             width: 350px;
@@ -167,8 +169,7 @@
                 </li>
                 <li class="nav-item d-none d-lg-block">
                     <img src="https://scontent-qro3-1.xx.fbcdn.net/v/t39.30808-6/641336141_122123655243041910_7510176968651986826_n.jpg?stp=dst-jpg_p180x540_tt6&_nc_cat=108&ccb=1-7&_nc_sid=13d280&_nc_ohc=ww2v99uQO9IQ7kNvwErP1DQ&_nc_oc=AdnLV_Zd2zbY4t5gBQwI_ocd0XZcjhte21UjiuE9Now35DCTzSZduVZ90trhISh4qbihmzZAIIK-J38SZEmdyKWo&_nc_zt=23&_nc_ht=scontent-qro3-1.xx&_nc_gid=QPNB9nXrtpZy2gZ4sgDvVg&oh=00_AftAv2vSxRa3gbmPghjODgUuXq5jT5PQCvSCEy4kwHJgJg&oe=699F91DB" 
-                         alt="Logo informatica" 
-                         class="logo-img rounded shadow-sm">
+                         alt="Logo" class="logo-img rounded shadow-sm">
                 </li>
             </ul>
         </div>
@@ -220,22 +221,22 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="p-4 bg-white shadow-sm rounded-4 h-100 card-info">
                     <i class="bi bi-graph-up-arrow fs-1 text-primary"></i>
-                    <h4 class="mt-3">Estadística</h4>
-                    <p>Modelos matemáticos para la toma de decisiones.</p>
+                    <h4 class="mt-3">Estadística Avanzada</h4>
+                    <p>Modelos matemáticos para analizar datos y toma de decisiones.</p>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3">
                 <div class="p-4 bg-white shadow-sm rounded-4 h-100 card-info">
                     <i class="bi bi-code-slash fs-1 text-primary"></i>
                     <h4 class="mt-3">Algoritmia</h4>
-                    <p>Diseño de algoritmos eficientes para problemas complejos.</p>
+                    <p>Diseño de algoritmos eficientes para problemas computacionales.</p>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3">
                 <div class="p-4 bg-white shadow-sm rounded-4 h-100 card-info">
                     <i class="bi bi-eye fs-1 text-primary"></i>
                     <h4 class="mt-3">Visión Artificial</h4>
-                    <p>Interpretación de imágenes mediante procesamiento visual.</p>
+                    <p>Desarrollo de sistemas que interpretan imágenes y video.</p>
                 </div>
             </div>
         </div>
@@ -245,44 +246,28 @@
 <section id="actividades" class="page-content">
     <div class="container">
         <h2 class="text-center mb-4">Lo que harás en Tecnoaventuras</h2>
-        <p class="text-center text-muted mb-5">Haz clic en una actividad para ver los detalles.</p>
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <div class="list-group">
                     <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrarLab('redes')">
                         <i class="bi bi-diagram-3 fs-2 text-info"></i>
-                        <div>
-                            <h6 class="mb-0">Entrenamiento de Redes Neuronales</h6>
-                            <p class="mb-0 opacity-75">Crea modelos de aprendizaje profundo que imitan el cerebro humano.</p>
-                        </div>
+                        <div><h6 class="mb-0">Entrenamiento de Redes Neuronales</h6><p class="mb-0">Modelos de aprendizaje profundo.</p></div>
                     </div>
                     <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrarLab('ciberseguridad')">
                         <i class="bi bi-shield-lock fs-2 text-info"></i>
-                        <div>
-                            <h6 class="mb-0">Ciberseguridad y Pentesting</h6>
-                            <p class="mb-0 opacity-75">Aprende a proteger y testear la seguridad de infraestructuras críticas.</p>
-                        </div>
+                        <div><h6 class="mb-0">Ciberseguridad y Pentesting</h6><p class="mb-0">Protección de sistemas y redes.</p></div>
                     </div>
                     <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrarLab('vision')">
                         <i class="bi bi-camera-video fs-2 text-info"></i>
-                        <div>
-                            <h6 class="mb-0">Visión por Computadora</h6>
-                            <p class="mb-0 opacity-75">Procesa imágenes en tiempo real para reconocimiento facial y objetos.</p>
-                        </div>
+                        <div><h6 class="mb-0">Visión por Computadora</h6><p class="mb-0">Reconocimiento facial y de objetos.</p></div>
                     </div>
                     <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrarLab('nlp')">
                         <i class="bi bi-chat-left-dots fs-2 text-info"></i>
-                        <div>
-                            <h6 class="mb-0">Procesamiento de Lenguaje Natural (NLP)</h6>
-                            <p class="mb-0 opacity-75">Crea asistentes como TecnoBot que entienden el habla humana.</p>
-                        </div>
+                        <div><h6 class="mb-0">Procesamiento de Lenguaje Natural</h6><p class="mb-0">Creación de asistentes inteligentes.</p></div>
                     </div>
                     <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrarLab('bigdata')">
                         <i class="bi bi-database-fill-gear fs-2 text-info"></i>
-                        <div>
-                            <h6 class="mb-0">Big Data & Analytics</h6>
-                            <p class="mb-0 opacity-75">Analiza millones de datos para predecir tendencias globales.</p>
-                        </div>
+                        <div><h6 class="mb-0">Big Data & Analytics</h6><p class="mb-0">Análisis de grandes volúmenes de datos.</p></div>
                     </div>
                 </div>
             </div>
@@ -296,7 +281,8 @@
         <div id="labContent" class="p-4 bg-white rounded shadow-lg border-top border-info border-5">
             <div class="text-center py-5">
                 <i class="bi bi-pc-display-horizontal display-1 text-muted"></i>
-                <p class="mt-3">Selecciona una actividad para ver los detalles.</p>
+                <p class="mt-3">Selecciona una actividad para ver la información.</p>
+                <button class="btn btn-outline-info" onclick="showPage('actividades')">Volver</button>
             </div>
         </div>
     </div>
@@ -304,27 +290,28 @@
 
 <footer>
     <div class="container text-center">
-        <p>Tecnológico Superior de Acayucan &copy; 2026</p>
+        <h5>Tecnológico Superior de Acayucan</h5>
+        <p>&copy; 2026 - Carrera de Informática</p>
     </div>
 </footer>
 
 <div id="bot-container">
     <div id="chat-window" class="card shadow">
-        <div class="card-header bg-dark text-white d-flex justify-content-between">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
             <span>🤖 TecnoBot</span>
             <button class="btn btn-sm btn-close btn-close-white" onclick="toggleBot()"></button>
         </div>
-        <div class="chat-body" id="chatMessages">
-            <div class="msg bot-msg">¡Hola! ¿En qué puedo ayudarte?</div>
+        <div class="chat-body d-flex flex-column" id="chatMessages">
+            <div class="msg bot-msg">¡Hola! Soy TecnoBot. ¿En qué puedo ayudarte?</div>
         </div>
-        <div class="card-footer bg-white">
+        <div class="card-footer bg-white border-0">
             <div class="input-group">
-                <input type="text" id="userInput" class="form-control" placeholder="Escribe algo...">
+                <input type="text" id="userInput" class="form-control" placeholder="Escribe aquí...">
                 <button class="btn btn-info" onclick="handleBotResponse()">Enviar</button>
             </div>
         </div>
     </div>
-    <button class="btn btn-info rounded-circle shadow p-3" onclick="toggleBot()">
+    <button class="btn btn-info rounded-circle shadow p-3 mt-2" onclick="toggleBot()">
         <i class="bi bi-chat-dots-fill fs-3 text-white"></i>
     </button>
 </div>
@@ -334,7 +321,8 @@
 <script>
 function showPage(pageId) {
     document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active-page'));
-    document.getElementById(pageId).classList.add('active-page');
+    const target = document.getElementById(pageId);
+    if(target) target.classList.add('active-page');
     window.scrollTo(0, 0);
     const navCollapse = document.getElementById('mainNav');
     const bsCollapse = bootstrap.Collapse.getInstance(navCollapse);
@@ -345,13 +333,19 @@ function mostrarLab(tipo) {
     showPage('descripcion');
     const lab = document.getElementById("labContent");
     const contenidos = {
-        redes: { titulo: "Redes Neuronales", img: "https://images.unsplash.com/photo-1555949963-aa79dcee981c", desc: "Diseño de modelos de IA avanzados." },
-        ciberseguridad: { titulo: "Ciberseguridad", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b", desc: "Protección de infraestructuras críticas." },
-        vision: { titulo: "Visión por Computadora", img: "https://algolabs.ai/wp-content/uploads/2021/03/Computer-vision-Nota-Blog-1080x675.jpg", desc: "Interpretación de video y reconocimiento facial." }
+        redes: { titulo: "Redes Neuronales", img: "https://images.unsplash.com/photo-1555949963-aa79dcee981c", desc: "Aprendizaje profundo y automatización." },
+        ciberseguridad: { titulo: "Ciberseguridad", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b", desc: "Defensa contra amenazas digitales." },
+        vision: { titulo: "Visión por Computadora", img: "https://algolabs.ai/wp-content/uploads/2021/03/Computer-vision-Nota-Blog-1080x675.jpg", desc: "Interpretación visual de datos." },
+        nlp: { titulo: "NLP", img: "https://images.unsplash.com/photo-1546776310-eef45dd6d63c", desc: "Comprensión del lenguaje humano." },
+        bigdata: { titulo: "Big Data", img: "https://www.edsrobotics.com/wp-content/uploads/2021/02/big-data-ventajas-y-desventajas.jpg", desc: "Análisis masivo de datos." }
     };
     const info = contenidos[tipo];
     if (info) {
-        lab.innerHTML = `<div class="row align-items-center"><div class="col-md-6"><img src="${info.img}" class="lab-image shadow mb-3"></div><div class="col-md-6"><h3>${info.titulo}</h3><p>${info.desc}</p></div></div>`;
+        lab.innerHTML = `
+            <div class="row align-items-center">
+                <div class="col-md-6"><img src="${info.img}" class="lab-image shadow mb-3"></div>
+                <div class="col-md-6"><h3>${info.titulo}</h3><p>${info.desc}</p></div>
+            </div>`;
     }
 }
 
@@ -366,9 +360,9 @@ function handleBotResponse() {
     const text = input.value.trim().toLowerCase();
     if (!text) return;
     chatMessages.innerHTML += `<div class="msg user-msg">${input.value}</div>`;
-    let reply = "Interesante... ¿Quieres saber más sobre nuestras becas o perfil?";
+    let reply = "Soy TecnoBot, ¿quieres saber más sobre inscripciones?";
     if (text.includes("perfil")) reply = "Buscamos mentes analíticas.";
-    if (text.includes("becas")) reply = "¡Inscripción gratuita!";
+    if (text.includes("becas")) reply = "¡La inscripción es gratuita!";
     setTimeout(() => {
         chatMessages.innerHTML += `<div class="msg bot-msg">${reply}</div>`;
         chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -379,4 +373,3 @@ function handleBotResponse() {
 
 </body>
 </html>
-
