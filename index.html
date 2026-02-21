@@ -60,6 +60,16 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        .card-info {
+            border: none;
+            border-top: 4px solid var(--secondary-color);
+            transition: 0.3s;
+        }
+        .card-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+
         .list-group-item {
             cursor: pointer;
             transition: 0.3s;
@@ -72,7 +82,7 @@
             background-color: #f0fcff;
         }
 
-        /* BOT */
+    
         #bot-container { position: fixed; bottom: 15px; right: 15px; z-index: 9999; }
         #chat-window {
             width: 350px;
@@ -99,19 +109,35 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-    <div class="container">
-        <a class="navbar-brand text-info" href="#" onclick="showPage('inicio')">🚀 TECNOAVENTURAS</a>
+    <div class="container-fluid px-4">
+        
+        <a class="navbar-brand d-flex align-items-center" href="#" onclick="showPage('inicio')">
+            <img src="https://www.itsacayucan.edu.mx/img/logos/LOGO%20ESCUDO%20ITSA.png" 
+                 alt="Logo ITSA" 
+                 height="70"    
+                 class="me-2">
+            <span class="d-none d-sm-inline">TECNOAVENTURAS</span>
+        </a>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="mainNav">
-            <ul class="navbar-nav ms-auto text-uppercase fw-bold">
+            <ul class="navbar-nav ms-auto text-uppercase fw-bold align-items-center">
+                <li class="nav-item"><a class="nav-link" onclick="showPage('conocenos')">Conócenos</a></li>
                 <li class="nav-item"><a class="nav-link" onclick="showPage('perfil')">Perfil Académico</a></li>
                 <li class="nav-item"><a class="nav-link" onclick="showPage('actividades')">Actividades</a></li>
-                <li class="nav-item"><a class="nav-link" onclick="showPage('laboratorio')">Descripcion</a></li>
+                <li class="nav-item"><a class="nav-link" onclick="showPage('descripcion')">Descripción</a></li>
                 <li class="nav-item">
-                    <a class="btn btn-outline-info ms-lg-3" href="http://www.itsacayucan.edu.mx/" target="_blank">Únete Ahora</a>
+                    <a class="btn btn-outline-info ms-lg-3 me-lg-4" href="http://www.itsacayucan.edu.mx/" target="_blank">Únete Ahora</a>
+                </li>
+                
+                <li class="nav-item d-none d-lg-block">
+                    <img src="https://www.itsacayucan.edu.mx/carreras/informacion/informatica/LOGO.jpeg" 
+                         alt="Logo informatica" 
+                         height="70" 
+                         class="rounded shadow-sm">
                 </li>
             </ul>
         </div>
@@ -123,41 +149,79 @@
         <div class="container text-center">
             <h1>La Informática es el nuevo superpoder</h1>
             <p class="lead">Explora la Inteligencia Artificial y cambia el mundo en Tecnoaventuras.</p>
-            <button class="btn btn-info btn-lg mt-3" onclick="showPage('perfil')">Explorar Carrera</button>
+            <div class="d-flex justify-content-center gap-3">
+                <button class="btn btn-info btn-lg mt-3" onclick="showPage('conocenos')">¿Quiénes somos?</button>
+                <button class="btn btn-outline-light btn-lg mt-3" onclick="showPage('perfil')">Ver Perfil</button>
+            </div>
         </div>
     </header>
 </main>
 
+<section id="conocenos" class="page-content">
+    <div class="container">
+        <h2 class="text-center mb-5 border-bottom pb-3">Nuestra Institución</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm card-info">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-flag-fill fs-1 text-primary mb-3"></i>
+                        <h4 class="fw-bold">Misión</h4>
+                        <p class="text-muted">Asegurar la formación integral de los estudiantes, en profesionistas e investigadores de excelencia, capaces de desarrollar tecnología para la vida y el respeto al medio ambiente, utilizando el mejor capital intelectual en las áreas del conocimiento correspondiente.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm card-info">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-eye-fill fs-1 text-primary mb-3"></i>
+                        <h4 class="fw-bold">Visión</h4>
+                        <p class="text-muted">Ser una institución educativa de vanguardia, con reconocimiento a nivel nacional e internacional, por su capacidad innovadora para desarrollar tecnología e investigación, fomentando una visión inclusiva con el entorno social y comprometida con el medio ambiente.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm card-info">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-trophy-fill fs-1 text-primary mb-3"></i>
+                        <h4 class="fw-bold">Objetivo</h4>
+                        <p class="text-muted">Formar profesionales competentes en el diseño, desarrollo, implementación y administración de servicios informáticos y proyectos tecnológicos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="perfil" class="page-content">
     <div class="container">
-        <h2 class="text-center mb-5 border-bottom pb-3">Tu Perfil como Arquitecto de IA</h2>
+        <h2 class="text-center mb-5 border-bottom pb-3">Tu Perfil como Informatico</h2>
         <div class="row g-4 text-center">
             <div class="col-md-6 col-lg-3">
                 <div class="p-4 bg-white shadow-sm rounded-4 h-100">
                     <i class="bi bi-cpu fs-1 text-primary"></i>
                     <h4 class="mt-3">Hardware & Software</h4>
-                    <p>Aprenderás cómo el silicio se convierte en pensamiento digital.</p>
+                    <p>Conocimiento en integración, configuración y optimización de sistemas físicos y aplicaciones para garantizar su correcto funcionamiento.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
                 <div class="p-4 bg-white shadow-sm rounded-4 h-100">
                     <i class="bi bi-graph-up-arrow fs-1 text-primary"></i>
                     <h4 class="mt-3">Estadística Avanzada</h4>
-                    <p>La base de toda IA es saber interpretar los datos.</p>
+                    <p>Aplicación de métodos estadísticos y modelos matemáticos para analizar datos y apoyar la toma de decisiones.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
                 <div class="p-4 bg-white shadow-sm rounded-4 h-100">
                     <i class="bi bi-code-slash fs-1 text-primary"></i>
                     <h4 class="mt-3">Algoritmia</h4>
-                    <p>Diseño de soluciones lógicas para problemas complejos.</p>
+                    <p>Diseño y optimización de algoritmos eficientes para resolver problemas computacionales complejos.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
                 <div class="p-4 bg-white shadow-sm rounded-4 h-100">
                     <i class="bi bi-eye fs-1 text-primary"></i>
                     <h4 class="mt-3">Visión Artificial</h4>
-                    <p>Enseña a las máquinas a ver y entender su entorno.</p>
+                    <p>Desarrollo de sistemas capaces de interpretar imágenes y video mediante técnicas de procesamiento y análisis visual.</p>
                 </div>
             </div>
         </div>
@@ -167,7 +231,7 @@
 <section id="actividades" class="page-content">
     <div class="container">
         <h2 class="text-center mb-4">Lo que harás en Tecnoaventuras</h2>
-        <p class="text-center text-muted mb-5">Haz clic en una actividad para entrar al Laboratorio Virtual.</p>
+        <p class="text-center text-muted mb-5">Haz clic en una actividad para ver los detalles.</p>
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <div class="list-group">
@@ -212,9 +276,9 @@
     </div>
 </section>
 
-<section id="laboratorio" class="page-content">
+<section id="descripcion" class="page-content">
     <div class="container">
-        <h2 class="text-center mb-4">🔬 Conoce mas de nuestras actividades </h2>
+        <h2 class="text-center mb-4">🔬 Conoce más de nuestras actividades </h2>
         <div id="labContent" class="p-5 bg-white rounded shadow-lg border-top border-info border-5">
             <div class="text-center py-5">
                 <i class="bi bi-pc-display-horizontal display-1 text-muted"></i>
@@ -227,8 +291,7 @@
 
 <footer>
     <div class="container text-center">
-        <h5>Tecnologico Superior de Acayucan</h5>
-        <p class="small opacity-75">Carretera costera del golfo km 216.4, Colonia Agricola Michapan, Acayucan, Mexico</p>
+        <h5>Tecnológico Superior de Acayucan</h5>
         <div class="d-flex justify-content-center gap-3 fs-4">
             <i class="bi bi-facebook"></i><i class="bi bi-linkedin"></i><i class="bi bi-github"></i>
         </div>
@@ -263,37 +326,42 @@ function showPage(pageId) {
     document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active-page'));
     document.getElementById(pageId).classList.add('active-page');
     window.scrollTo(0, 0);
+    
+    const navCollapse = document.getElementById('mainNav');
+    if (navCollapse.classList.contains('show')) {
+        new bootstrap.Collapse(navCollapse).hide();
+    }
 }
 
 function mostrarLab(tipo) {
-    showPage('laboratorio');
+    showPage('descripcion');
     const lab = document.getElementById("labContent");
 
     const contenidos = {
         redes: {
             titulo: "Entrenamiento de Redes Neuronales",
             img: "https://images.unsplash.com/photo-1555949963-aa79dcee981c",
-            desc: "Aquí aprenderás a diseñar capas de neuronas artificiales. Utilizarás frameworks como TensorFlow o PyTorch para que la máquina aprenda a clasificar datos por sí sola."
+            desc: "Los alumnos aprenden a diseñar y enseñar modelos de inteligencia artificial capaces de reconocer patrones, hacer predicciones y automatizar decisiones, utilizando herramientas profesionales como TensorFlow y PyTorch."
         },
         ciberseguridad: {
             titulo: "Ciberseguridad y Pentesting",
             img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b",
-            desc: "Bienvenido al centro de operaciones de seguridad (SOC). En este lab simulamos ataques de fuerza bruta y SQL Injection para aprender a defender redes empresariales."
+            desc: "Los estudiantes desarrollan habilidades para proteger sistemas y datos frente a amenazas digitales, aprendiendo a identificar vulnerabilidades, prevenir ataques y fortalecer la seguridad de la información en entornos reales."
         },
         vision: {
             titulo: "Visión por Computadora",
-            img: "https://images.unsplash.com/photo-1527430295725-49952119e5f5",
-            desc: "Abre los ojos de la IA. Aquí programamos algoritmos de OpenCV para detectar rostros, seguir objetos en movimiento y asistir en cirugías robóticas."
+            img: "https://algolabs.ai/wp-content/uploads/2021/03/Computer-vision-Nota-Blog-1080x675.jpg",
+            desc: "Los alumnos trabajan con tecnologías que permiten a las máquinas interpretar imágenes y videos, desarrollando aplicaciones como reconocimiento facial, detección de objetos o análisis de imágenes médicas, apoyándose en librerías como OpenCV."
         },
         nlp: {
             titulo: "Procesamiento de Lenguaje Natural",
             img: "https://images.unsplash.com/photo-1546776310-eef45dd6d63c",
-            desc: "En este módulo, enseñamos a las máquinas a entender el contexto, el sarcasmo y los sentimientos detrás de un texto o audio."
+            desc: "Se explora cómo las computadoras pueden comprender y generar lenguaje humano, creando chatbots, sistemas de análisis de texto y soluciones de automatización inteligente con modelos avanzados como BERT."
         },
         bigdata: {
             titulo: "Big Data & Analytics",
-            img: "https://images.unsplash.com/photo-1551288049-bbbda5402742",
-            desc: "Maneja volúmenes masivos de datos. Aprenderás Hadoop y Spark para extraer información valiosa de billones de registros en segundos."
+            img: "https://imgs.search.brave.com/T7fCa13VL73QUhNRpnZKr-elnArXGKnZEfx-oyR2Kx4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZWRzcm9ib3RpY3Mu/Y29tL3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDIxLzAyL2JpZy1k/YXRhLXZlbnRhamFz/LXktZGVzdmVudGFq/YXMuanBn",
+            desc: "Los estudiantes aprenden a manejar y analizar grandes volúmenes de datos para descubrir patrones, generar visualizaciones y apoyar la toma de decisiones estratégicas, utilizando plataformas como Apache Hadoop y Apache Spark."
         }
     };
 
@@ -306,15 +374,9 @@ function mostrarLab(tipo) {
                     <img src="${info.img}" class="lab-image shadow mb-4 mb-md-0" alt="${info.titulo}">
                 </div>
                 <div class="col-md-6">
-                    <span class="badge bg-info text-dark mb-2">Entorno Virtual Activo</span>
+                    <span class="badge bg-info text-dark mb-2">Entorno Informativo Activo</span>
                     <h3 class="fw-bold">${info.titulo}</h3>
                     <p class="text-secondary">${info.desc}</p>
-                    <hr>
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-primary" onclick="alert('Iniciando simulador virtual...')">
-                            <i class="bi bi-play-fill"></i> Iniciar Simulación
-                        </button>
-                    </div>
                 </div>
             </div>
         `;
@@ -338,8 +400,8 @@ function handleBotResponse() {
 
     if (text.includes("perfil")) reply = "Nuestro perfil busca mentes analíticas que dominen software y lógica.";
     if (text.includes("actividades")) reply = "Tenemos Redes Neuronales, Visión Artificial, Big Data y más.";
-    if (text.includes("becas") || text.includes("precio")) reply = "Contamos con convenios y becas de excelencia. ¡Únete!";
-    if (text.includes("hola") || text.includes("buenos")) reply = "¡Hola! Bienvenido a Tecnoaventuras. ¿Qué área de la IA te interesa?";
+    if (text.includes("becas") || text.includes("precio")) reply = "Contamos con inscripcion gratuita!!";
+    if (text.includes("hola") || text.includes("buenos")) reply = "¡Hola! Bienvenido a Tecnoaventuras. ¿Qué área te interesa?";
 
     setTimeout(() => {
         chatMessages.innerHTML += `<div class="msg bot-msg">${reply}</div>`;
