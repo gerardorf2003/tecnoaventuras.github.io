@@ -23,12 +23,25 @@
         }
 
         h1, h2, .navbar-brand { font-family: 'Orbitron', sans-serif; }
-        h1 { font-size: clamp(1.8rem, 5vw, 3.5rem); }
-        h2 { font-size: clamp(1.4rem, 4vw, 2.2rem); }
+        
+        /* Ajuste de fuentes fluido para responsive */
+        h1 { font-size: clamp(1.6rem, 7vw, 3.5rem); }
+        h2 { font-size: clamp(1.3rem, 5vw, 2.2rem); }
 
         .navbar {
             background: rgba(11, 14, 20, 0.95) !important;
             backdrop-filter: blur(10px);
+        }
+
+        /* Logos en las esquinas responsivos */
+        .logo-img {
+            height: 70px;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 991px) {
+            .logo-img { height: 50px; }
+            .navbar-brand span { font-size: 0.9rem; }
         }
 
         .hero-section {
@@ -82,11 +95,11 @@
             background-color: #f0fcff;
         }
 
-    
+        /* Chat bot responsive */
         #bot-container { position: fixed; bottom: 15px; right: 15px; z-index: 9999; }
         #chat-window {
             width: 350px;
-            max-width: 95vw;
+            max-width: 90vw;
             height: 420px;
             display: none;
             flex-direction: column;
@@ -109,14 +122,12 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-    <div class="container-fluid px-4">
-        
+    <div class="container-fluid px-lg-4">
         <a class="navbar-brand d-flex align-items-center" href="#" onclick="showPage('inicio')">
             <img src="https://www.itsacayucan.edu.mx/img/logos/LOGO%20ESCUDO%20ITSA.png" 
                  alt="Logo ITSA" 
-                 height="70"    
-                 class="me-2">
-            <span class="d-none d-sm-inline">TECNOAVENTURAS</span>
+                 class="logo-img me-2">
+            <span>TECNOAVENTURAS</span>
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
@@ -124,20 +135,18 @@
         </button>
 
         <div class="collapse navbar-collapse" id="mainNav">
-            <ul class="navbar-nav ms-auto text-uppercase fw-bold align-items-center">
+            <ul class="navbar-nav ms-auto text-uppercase fw-bold align-items-center text-center">
                 <li class="nav-item"><a class="nav-link" onclick="showPage('conocenos')">Conócenos</a></li>
                 <li class="nav-item"><a class="nav-link" onclick="showPage('perfil')">Perfil Académico</a></li>
                 <li class="nav-item"><a class="nav-link" onclick="showPage('actividades')">Actividades</a></li>
                 <li class="nav-item"><a class="nav-link" onclick="showPage('descripcion')">Descripción</a></li>
                 <li class="nav-item">
-                    <a class="btn btn-outline-info ms-lg-3 me-lg-4" href="http://www.itsacayucan.edu.mx/" target="_blank">Únete Ahora</a>
+                    <a class="btn btn-outline-info my-2 my-lg-0 ms-lg-3 me-lg-4" href="http://www.itsacayucan.edu.mx/" target="_blank">Únete Ahora</a>
                 </li>
-                
                 <li class="nav-item d-none d-lg-block">
-                    <img src="https://www.itsacayucan.edu.mx/carreras/informacion/informatica/LOGO.jpeg" 
+                    <img src="https://scontent-qro3-1.xx.fbcdn.net/v/t39.30808-6/641336141_122123655243041910_7510176968651986826_n.jpg?stp=dst-jpg_p180x540_tt6&_nc_cat=108&ccb=1-7&_nc_sid=13d280&_nc_ohc=ww2v99uQO9IQ7kNvwErP1DQ&_nc_oc=AdnLV_Zd2zbY4t5gBQwI_ocd0XZcjhte21UjiuE9Now35DCTzSZduVZ90trhISh4qbihmzZAIIK-J38SZEmdyKWo&_nc_zt=23&_nc_ht=scontent-qro3-1.xx&_nc_gid=QPNB9nXrtpZy2gZ4sgDvVg&oh=00_AftAv2vSxRa3gbmPghjODgUuXq5jT5PQCvSCEy4kwHJgJg&oe=699F91DB" 
                          alt="Logo informatica" 
-                         height="70" 
-                         class="rounded shadow-sm">
+                         class="logo-img rounded shadow-sm">
                 </li>
             </ul>
         </div>
@@ -149,7 +158,7 @@
         <div class="container text-center">
             <h1>La Informática es el nuevo superpoder</h1>
             <p class="lead">Explora la Inteligencia Artificial y cambia el mundo en Tecnoaventuras.</p>
-            <div class="d-flex justify-content-center gap-3">
+            <div class="d-flex flex-wrap justify-content-center gap-3">
                 <button class="btn btn-info btn-lg mt-3" onclick="showPage('conocenos')">¿Quiénes somos?</button>
                 <button class="btn btn-outline-light btn-lg mt-3" onclick="showPage('perfil')">Ver Perfil</button>
             </div>
@@ -196,28 +205,28 @@
     <div class="container">
         <h2 class="text-center mb-5 border-bottom pb-3">Tu Perfil como Informatico</h2>
         <div class="row g-4 text-center">
-            <div class="col-md-6 col-lg-3">
+            <div class="col-sm-6 col-lg-3">
                 <div class="p-4 bg-white shadow-sm rounded-4 h-100">
                     <i class="bi bi-cpu fs-1 text-primary"></i>
                     <h4 class="mt-3">Hardware & Software</h4>
                     <p>Conocimiento en integración, configuración y optimización de sistemas físicos y aplicaciones para garantizar su correcto funcionamiento.</p>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3">
+            <div class="col-sm-6 col-lg-3">
                 <div class="p-4 bg-white shadow-sm rounded-4 h-100">
                     <i class="bi bi-graph-up-arrow fs-1 text-primary"></i>
                     <h4 class="mt-3">Estadística Avanzada</h4>
                     <p>Aplicación de métodos estadísticos y modelos matemáticos para analizar datos y apoyar la toma de decisiones.</p>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3">
+            <div class="col-sm-6 col-lg-3">
                 <div class="p-4 bg-white shadow-sm rounded-4 h-100">
                     <i class="bi bi-code-slash fs-1 text-primary"></i>
                     <h4 class="mt-3">Algoritmia</h4>
                     <p>Diseño y optimización de algoritmos eficientes para resolver problemas computacionales complejos.</p>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3">
+            <div class="col-sm-6 col-lg-3">
                 <div class="p-4 bg-white shadow-sm rounded-4 h-100">
                     <i class="bi bi-eye fs-1 text-primary"></i>
                     <h4 class="mt-3">Visión Artificial</h4>
@@ -279,7 +288,7 @@
 <section id="descripcion" class="page-content">
     <div class="container">
         <h2 class="text-center mb-4">🔬 Conoce más de nuestras actividades </h2>
-        <div id="labContent" class="p-5 bg-white rounded shadow-lg border-top border-info border-5">
+        <div id="labContent" class="p-4 p-md-5 bg-white rounded shadow-lg border-top border-info border-5">
             <div class="text-center py-5">
                 <i class="bi bi-pc-display-horizontal display-1 text-muted"></i>
                 <p class="mt-3 text-muted">No has seleccionado ninguna actividad todavía.<br>Ve a la sección de actividades y elige una.</p>
@@ -328,8 +337,9 @@ function showPage(pageId) {
     window.scrollTo(0, 0);
     
     const navCollapse = document.getElementById('mainNav');
-    if (navCollapse.classList.contains('show')) {
-        new bootstrap.Collapse(navCollapse).hide();
+    const bsCollapse = bootstrap.Collapse.getInstance(navCollapse);
+    if (bsCollapse) {
+        bsCollapse.hide();
     }
 }
 
