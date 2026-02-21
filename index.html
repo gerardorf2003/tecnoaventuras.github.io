@@ -71,7 +71,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- CORRECCIÓN DE IMÁGENES PARA QUE NO SE CORTEN --- */
+
         .img-container-full {
             width: 100%;
             background-color: #f4f7f6;
@@ -81,20 +81,20 @@
 
         .img-full-screen {
             width: 100%;
-            height: auto; /* Permite que la altura se ajuste a la proporción original */
+            height: auto;
             display: block;
-            object-fit: contain; /* Asegura que se vea toda la imagen */
+            object-fit: contain; 
             image-rendering: -webkit-optimize-contrast;
         }
 
         @media (max-width: 768px) {
             .page-content { padding: 30px 0; }
             .img-full-screen {
-                border-bottom: 2px solid #ddd; /* Separación visual en móviles */
+                border-bottom: 2px solid #ddd; 
             }
         }
 
-        /* --- ESTILOS DE TARJETAS Y LISTAS --- */
+     
         .card-info {
             border: none;
             border-top: 4px solid var(--secondary-color);
@@ -117,7 +117,7 @@
             background-color: #f0fcff;
         }
 
-        /* --- CHATBOT --- */
+    
         #bot-container { position: fixed; bottom: 15px; right: 15px; z-index: 9999; }
         #chat-window {
             width: 350px;
@@ -245,20 +245,44 @@
 <section id="actividades" class="page-content">
     <div class="container">
         <h2 class="text-center mb-4">Lo que harás en Tecnoaventuras</h2>
+        <p class="text-center text-muted mb-5">Haz clic en una actividad para ver los detalles.</p>
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <div class="list-group">
-                    <div class="list-group-item d-flex gap-3 py-3 mb-2" onclick="mostrarLab('redes')">
+                    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrarLab('redes')">
                         <i class="bi bi-diagram-3 fs-2 text-info"></i>
-                        <div><h6>Redes Neuronales</h6><p class="mb-0">Crea modelos de aprendizaje profundo.</p></div>
+                        <div>
+                            <h6 class="mb-0">Entrenamiento de Redes Neuronales</h6>
+                            <p class="mb-0 opacity-75">Crea modelos de aprendizaje profundo que imitan el cerebro humano.</p>
+                        </div>
                     </div>
-                    <div class="list-group-item d-flex gap-3 py-3 mb-2" onclick="mostrarLab('ciberseguridad')">
+                    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrarLab('ciberseguridad')">
                         <i class="bi bi-shield-lock fs-2 text-info"></i>
-                        <div><h6>Ciberseguridad</h6><p class="mb-0">Protección y Pentesting.</p></div>
+                        <div>
+                            <h6 class="mb-0">Ciberseguridad y Pentesting</h6>
+                            <p class="mb-0 opacity-75">Aprende a proteger y testear la seguridad de infraestructuras críticas.</p>
+                        </div>
                     </div>
-                    <div class="list-group-item d-flex gap-3 py-3 mb-2" onclick="mostrarLab('vision')">
+                    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrarLab('vision')">
                         <i class="bi bi-camera-video fs-2 text-info"></i>
-                        <div><h6>Visión por Computadora</h6><p class="mb-0">Procesamiento de imagen en tiempo real.</p></div>
+                        <div>
+                            <h6 class="mb-0">Visión por Computadora</h6>
+                            <p class="mb-0 opacity-75">Procesa imágenes en tiempo real para reconocimiento facial y objetos.</p>
+                        </div>
+                    </div>
+                    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrarLab('nlp')">
+                        <i class="bi bi-chat-left-dots fs-2 text-info"></i>
+                        <div>
+                            <h6 class="mb-0">Procesamiento de Lenguaje Natural (NLP)</h6>
+                            <p class="mb-0 opacity-75">Crea asistentes como TecnoBot que entienden el habla humana.</p>
+                        </div>
+                    </div>
+                    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrarLab('bigdata')">
+                        <i class="bi bi-database-fill-gear fs-2 text-info"></i>
+                        <div>
+                            <h6 class="mb-0">Big Data & Analytics</h6>
+                            <p class="mb-0 opacity-75">Analiza millones de datos para predecir tendencias globales.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -355,3 +379,4 @@ function handleBotResponse() {
 
 </body>
 </html>
+
