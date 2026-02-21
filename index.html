@@ -24,7 +24,6 @@
 
         h1, h2, .navbar-brand { font-family: 'Orbitron', sans-serif; }
         
-        /* Ajuste de fuentes fluido para responsive */
         h1 { font-size: clamp(1.6rem, 7vw, 3.5rem); }
         h2 { font-size: clamp(1.3rem, 5vw, 2.2rem); }
 
@@ -33,7 +32,6 @@
             backdrop-filter: blur(10px);
         }
 
-        /* Logos en las esquinas responsivos */
         .logo-img {
             height: 70px;
             transition: 0.3s;
@@ -59,7 +57,7 @@
 
         .page-content {
             display: none;
-            padding: 60px 15px;
+            padding: 60px 0; 
             min-height: 70vh;
         }
 
@@ -71,6 +69,15 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+s
+        .img-full-screen {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: auto;
         }
 
         .card-info {
@@ -95,7 +102,6 @@
             background-color: #f0fcff;
         }
 
-        /* Chat bot responsive */
         #bot-container { position: fixed; bottom: 15px; right: 15px; z-index: 9999; }
         #chat-window {
             width: 350px;
@@ -167,35 +173,14 @@
 </main>
 
 <section id="conocenos" class="page-content">
-    <div class="container">
+    <div class="container-fluid p-0">
         <h2 class="text-center mb-5 border-bottom pb-3">Nuestra Institución</h2>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm card-info">
-                    <div class="card-body text-center p-4">
-                        <i class="bi bi-flag-fill fs-1 text-primary mb-3"></i>
-                        <h4 class="fw-bold">Misión</h4>
-                        <p class="text-muted">Asegurar la formación integral de los estudiantes, en profesionistas e investigadores de excelencia, capaces de desarrollar tecnología para la vida y el respeto al medio ambiente, utilizando el mejor capital intelectual en las áreas del conocimiento correspondiente.</p>
-                    </div>
-                </div>
+        <div class="row g-0">
+            <div class="col-12">
+                <img src="imagen1.jpg" class="img-full-screen" alt="Conócenos 1">
             </div>
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm card-info">
-                    <div class="card-body text-center p-4">
-                        <i class="bi bi-eye-fill fs-1 text-primary mb-3"></i>
-                        <h4 class="fw-bold">Visión</h4>
-                        <p class="text-muted">Ser una institución educativa de vanguardia, con reconocimiento a nivel nacional e internacional, por su capacidad innovadora para desarrollar tecnología e investigación, fomentando una visión inclusiva con el entorno social y comprometida con el medio ambiente.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm card-info">
-                    <div class="card-body text-center p-4">
-                        <i class="bi bi-trophy-fill fs-1 text-primary mb-3"></i>
-                        <h4 class="fw-bold">Objetivo</h4>
-                        <p class="text-muted">Formar profesionales competentes en el diseño, desarrollo, implementación y administración de servicios informáticos y proyectos tecnológicos.</p>
-                    </div>
-                </div>
+            <div class="col-12">
+                <img src="imagen2.jpg" class="img-full-screen" alt="Conócenos 2">
             </div>
         </div>
     </div>
