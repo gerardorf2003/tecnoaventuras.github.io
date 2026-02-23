@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Administrador</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+
+<div id="loginBox" class="card p-4 shadow">
+<h3>Login Administrador</h3>
+<input type="email" id="adminEmail" class="form-control mb-3" placeholder="Correo">
+<input type="password" id="adminPass" class="form-control mb-3" placeholder="Contraseña">
+<button id="btnLogin" class="btn btn-dark">Ingresar</button>
+</div>
+
+<div id="adminPanel" style="display:none;">
+<div class="d-flex justify-content-between mb-3">
+<h3>Interesados</h3>
+<button id="btnExport" class="btn btn-success">Descargar Excel</button>
+</div>
+
+<table class="table table-bordered bg-white">
+<thead class="table-dark">
+<tr>
+<th>Nombre</th>
+<th>Correo</th>
+<th>Teléfono</th>
+<th>Fecha</th>
+</tr>
+</thead>
+<tbody id="tablaDatos"></tbody>
+</table>
+</div>
+
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "TUS_DATOS",
+  authDomain: "TUS_DATOS",
+  projectId: "TUS_DATOS",
+  storageBucket: "TUS_DATOS",
+  messagingSenderId: "TUS_DATOS",
+  appId: "TUS_DATOS"
+};
+
+const ADMIN_EMAIL = "admin@tecnoaventuras.com";
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+
+document.getElementById("btnLogin").onclick = async () => {
+  await signInWithEmailAndPassword(auth,
+    document.getElementById("adminEmail").value,
+    document.getElementById("adminPass").value
+  );
+};
+
+onAuthStateChanged(auth, async (user) => {
+  if (user && user.email === ADMIN_EMAIL) {
+
+    document.getElementById("loginBox").style.display = "none";
+    document.getElementById("adminPanel").style.display = "block";
+
+    const q = query(collection(db, "interesados"), orderBy("fecha","desc"));
+    const snapshot = await getDocs(q);
+
+    snapshot.forEach(doc => {
+      const d = doc.data();
+      document.getElementById("tablaDatos").innerHTML += `
+      <tr>
+        <td>${d.nombre}</td>
+        <td>${d.correo}</td>
+        <td>${d.telefono}</td>
+        <td>${new Date(d.fecha.seconds*1000).toLocaleString()}</td>
+      </tr>`;
+    });
+
+  }
+});
+
+document.getElementById("btnExport").onclick = async () => {
+  const snapshot = await getDocs(collection(db,"interesados"));
+  let csv = "Nombre,Correo,Telefono,Fecha\n";
+  snapshot.forEach(doc=>{
+    const d=doc.data();
+    csv+=`${d.nombre},${d.correo},${d.telefono},${new Date(d.fecha.seconds*1000)}\n`;
+  });
+  const blob=new Blob([csv],{type:"text/csv"});
+  const link=document.createElement("a");
+  link.href=URL.createObjectURL(blob);
+  link.download="interesados.csv";
+  link.click();
+};
+</script>
+
+</body>
+</html>
