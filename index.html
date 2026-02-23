@@ -177,29 +177,6 @@
 
 <main id="inicio" class="page-content active-page">
     <header class="hero-section">
-        <div class="container mt-5 mb-5">
-  <div class="card shadow p-4">
-    <h3 class="text-center mb-3">Formulario de Inscripción</h3>
-    <form id="formInscripcion">
-      <div class="mb-3">
-        <label>Nombre completo</label>
-        <input type="text" id="nombre" class="form-control" required>
-      </div>
-      <div class="mb-3">
-        <label>Correo electrónico</label>
-        <input type="email" id="correo" class="form-control" required>
-      </div>
-      <div class="mb-3">
-        <label>Número de teléfono</label>
-        <input type="text" id="telefono" class="form-control" required>
-      </div>
-      <div class="text-center">
-        <button type="submit" class="btn btn-info">Enviar</button>
-      </div>
-    </form>
-    <div id="mensajeExito" class="text-success mt-3 text-center"></div>
-  </div>
-</div>
         <div class="container text-center">
             <h1>La Informática es el nuevo superpoder</h1>
             <p class="lead">Explora la Inteligencia Artificial y cambia el mundo en Tecnoaventuras.</p>
@@ -209,6 +186,42 @@
             </div>
         </div>
     </header>
+    <section class="py-5 bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+        <div class="card shadow-lg border-0 rounded-4 p-4">
+          <h3 class="text-center mb-3">Formulario de Inscripción</h3>
+
+          <form id="formInscripcion">
+            <div class="mb-3">
+              <label class="form-label">Nombre completo</label>
+              <input type="text" id="nombre" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Correo electrónico</label>
+              <input type="email" id="correo" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Número de teléfono</label>
+              <input type="text" id="telefono" class="form-control" required>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-info btn-lg">
+                Enviar Inscripción
+              </button>
+            </div>
+          </form>
+
+          <div id="mensajeExito" class="text-success mt-3 text-center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
 <section id="conocenos" class="page-content">
@@ -467,3 +480,4 @@ document.getElementById("formInscripcion").addEventListener("submit", async (e) 
 
 </body>
 </html>
+
