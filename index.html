@@ -181,10 +181,22 @@
             <h1>La Informática es el nuevo superpoder</h1>
             <p class="lead">Explora la Inteligencia Artificial y cambia el mundo en Tecnoaventuras.</p>
             <div class="d-flex flex-wrap justify-content-center gap-3">
-                <button class="btn btn-info btn-lg mt-3" onclick="showPage('conocenos')">¿Quiénes somos?</button>
-                <button class="btn btn-outline-light btn-lg mt-3" onclick="showPage('perfil')">Ver Perfil</button>
-            </div>
-        </div>
+
+    <button class="btn btn-info btn-lg mt-3 shadow" onclick="showPage('conocenos')">
+        ¿Quiénes somos?
+    </button>
+
+    <button class="btn btn-outline-light btn-lg mt-3 shadow" onclick="showPage('perfil')">
+        Ver Perfil
+    </button>
+
+    <a href="https://www.google.com/maps/search/?api=1&query=Carretera+Costera+del+Golfo+km+216.4,+Colonia+Agricola+Michapa,+Acayucan,+Veracruz"
+       target="_blank"
+       class="btn btn-warning btn-lg mt-3 shadow fw-bold px-4">
+       📍 Ver Ubicación en el Mapa
+    </a>
+
+</div>
     </header>
     <section class="py-5 bg-light">
   <div class="container">
@@ -264,35 +276,56 @@
     <div class="container">
         <h2 class="text-center mb-5 border-bottom pb-3">Tu Perfil como Informatico</h2>
         <div class="row g-4 text-center">
-            <div class="col-sm-6 col-lg-3">
-                <div class="p-4 bg-white shadow-sm rounded-4 h-100 card-info">
-                    <i class="bi bi-cpu fs-1 text-primary"></i>
-                    <h4 class="mt-3">Hardware & Software</h4>
-                    <p>Integración y optimización de sistemas físicos y aplicaciones.</p>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="p-4 bg-white shadow-sm rounded-4 h-100 card-info">
-                    <i class="bi bi-graph-up-arrow fs-1 text-primary"></i>
-                    <h4 class="mt-3">Estadística Avanzada</h4>
-                    <p>Modelos matemáticos para analizar datos y toma de decisiones.</p>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="p-4 bg-white shadow-sm rounded-4 h-100 card-info">
-                    <i class="bi bi-code-slash fs-1 text-primary"></i>
-                    <h4 class="mt-3">Algoritmia</h4>
-                    <p>Diseño de algoritmos eficientes para problemas computacionales.</p>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="p-4 bg-white shadow-sm rounded-4 h-100 card-info">
-                    <i class="bi bi-eye fs-1 text-primary"></i>
-                    <h4 class="mt-3">Visión Artificial</h4>
-                    <p>Desarrollo de sistemas que interpretan imágenes y video.</p>
-                </div>
-            </div>
+
+    <div class="col-sm-6 col-lg-4">
+        <div class="p-4 bg-white shadow-sm rounded-4 h-100 card-info">
+            <i class="bi bi-lightbulb fs-1 text-primary"></i>
+            <h4 class="mt-3">Pensamiento Lógico y Analítico</h4>
+            <p>Capacidad para resolver problemas complejos mediante algoritmos y modelos computacionales.</p>
         </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4">
+        <div class="p-4 bg-white shadow-sm rounded-4 h-100 card-info">
+            <i class="bi bi-code-slash fs-1 text-primary"></i>
+            <h4 class="mt-3">Desarrollo de Software</h4>
+            <p>Diseño e implementación de aplicaciones eficientes, seguras y escalables.</p>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4">
+        <div class="p-4 bg-white shadow-sm rounded-4 h-100 card-info">
+            <i class="bi bi-database fs-1 text-primary"></i>
+            <h4 class="mt-3">Gestión de Información</h4>
+            <p>Administración y análisis de bases de datos para la toma de decisiones estratégicas.</p>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4">
+        <div class="p-4 bg-white shadow-sm rounded-4 h-100 card-info">
+            <i class="bi bi-shield-check fs-1 text-primary"></i>
+            <h4 class="mt-3">Seguridad Tecnológica</h4>
+            <p>Protección de sistemas informáticos ante amenazas y vulnerabilidades digitales.</p>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4">
+        <div class="p-4 bg-white shadow-sm rounded-4 h-100 card-info">
+            <i class="bi bi-diagram-3 fs-1 text-primary"></i>
+            <h4 class="mt-3">Infraestructura y Redes</h4>
+            <p>Diseño y administración de redes y sistemas operativos.</p>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4">
+        <div class="p-4 bg-white shadow-sm rounded-4 h-100 card-info">
+            <i class="bi bi-robot fs-1 text-primary"></i>
+            <h4 class="mt-3">Innovación y Tecnologías Inteligentes</h4>
+            <p>Aplicación de Inteligencia Artificial y Machine Learning en soluciones reales.</p>
+        </div>
+    </div>
+
+</div>
     </div>
     <div class="container mt-5">
   <h3 class="text-center mb-4">Galería Académica</h3>
@@ -356,29 +389,81 @@
         <h2 class="text-center mb-4">Lo que harás en Tecnoaventuras</h2>
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <div class="list-group">
-                    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrardes('redes')">
-                        <i class="bi bi-diagram-3 fs-2 text-info"></i>
-                        <div><h6 class="mb-0">Entrenamiento de Redes Neuronales</h6><p class="mb-0">Modelos de aprendizaje profundo.</p></div>
-                    </div>
-                    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrardes('ciberseguridad')">
-                        <i class="bi bi-shield-lock fs-2 text-info"></i>
-                        <div><h6 class="mb-0">Ciberseguridad y Pentesting</h6><p class="mb-0">Protección de sistemas y redes.</p></div>
-                    </div>
-                    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrardes('vision')">
-                        <i class="bi bi-camera-video fs-2 text-info"></i>
-                        <div><h6 class="mb-0">Visión por Computadora</h6><p class="mb-0">Reconocimiento facial y de objetos.</p></div>
-                    </div>
-                    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrardes('nlp')">
-                        <i class="bi bi-chat-left-dots fs-2 text-info"></i>
-                        <div><h6 class="mb-0">Procesamiento de Lenguaje Natural</h6><p class="mb-0">Creación de asistentes inteligentes.</p></div>
-                    </div>
-                    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrardes('bigdata')">
-                        <i class="bi bi-database-fill-gear fs-2 text-info"></i>
-                        <div><h6 class="mb-0">Big Data & Analytics</h6><p class="mb-0">Análisis de grandes volúmenes de datos.</p></div>
-                    </div>
-                </div>
-            </div>
+               <div class="list-group">
+
+    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrardes('apps')">
+        <i class="bi bi-phone fs-2 text-info"></i>
+        <div>
+            <h6 class="mb-0">Creación de Aplicaciones</h6>
+            <p class="mb-0">Desarrollo de apps móviles y de escritorio.</p>
+        </div>
+    </div>
+
+    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrardes('bd')">
+        <i class="bi bi-database fs-2 text-info"></i>
+        <div>
+            <h6 class="mb-0">Bases de Datos</h6>
+            <p class="mb-0">Diseño y administración de bases de datos.</p>
+        </div>
+    </div>
+
+    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrardes('redes')">
+        <i class="bi bi-diagram-3 fs-2 text-info"></i>
+        <div>
+            <h6 class="mb-0">Redes</h6>
+            <p class="mb-0">Configuración y administración de redes.</p>
+        </div>
+    </div>
+
+    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrardes('ciber')">
+        <i class="bi bi-shield-lock fs-2 text-info"></i>
+        <div>
+            <h6 class="mb-0">Ciberseguridad</h6>
+            <p class="mb-0">Protección de sistemas y datos.</p>
+        </div>
+    </div>
+
+    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrardes('hardware')">
+        <i class="bi bi-tools fs-2 text-info"></i>
+        <div>
+            <h6 class="mb-0">Ensamblaje y Mantenimiento</h6>
+            <p class="mb-0">Armado y mantenimiento de equipos.</p>
+        </div>
+    </div>
+
+    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrardes('web')">
+        <i class="bi bi-code-slash fs-2 text-info"></i>
+        <div>
+            <h6 class="mb-0">Creación de Páginas Web</h6>
+            <p class="mb-0">Diseño y desarrollo web moderno.</p>
+        </div>
+    </div>
+
+    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrardes('ml')">
+        <i class="bi bi-cpu fs-2 text-info"></i>
+        <div>
+            <h6 class="mb-0">Machine Learning</h6>
+            <p class="mb-0">Modelos de aprendizaje automático.</p>
+        </div>
+    </div>
+
+    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrardes('so')">
+        <i class="bi bi-pc-display fs-2 text-info"></i>
+        <div>
+            <h6 class="mb-0">Sistemas Operativos</h6>
+            <p class="mb-0">Administración de sistemas Windows y Linux.</p>
+        </div>
+    </div>
+
+    <div class="list-group-item d-flex gap-3 py-3 shadow-sm mb-2" onclick="mostrardes('embebidos')">
+        <i class="bi bi-cpu-fill fs-2 text-info"></i>
+        <div>
+            <h6 class="mb-0">Sistemas Embebidos</h6>
+            <p class="mb-0">Programación de microcontroladores.</p>
+        </div>
+    </div>
+
+</div>
         </div>
     </div>
 </section>
@@ -461,19 +546,77 @@ function switchConocenos(view) {
 function mostrardes(tipo) {
     showPage('descripcion');
     const lab = document.getElementById("labContent");
+
     const contenidos = {
-        redes: { titulo: "Redes Neuronales", img: "https://images.unsplash.com/photo-1555949963-aa79dcee981c", desc: "Aprendizaje profundo y automatización." },
-        ciberseguridad: { titulo: "Ciberseguridad", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b", desc: "Defensa contra amenazas digitales." },
-        vision: { titulo: "Visión por Computadora", img: "https://algolabs.ai/wp-content/uploads/2021/03/Computer-vision-Nota-Blog-1080x675.jpg", desc: "Interpretación visual de datos." },
-        nlp: { titulo: "NLP", img: "https://images.unsplash.com/photo-1546776310-eef45dd6d63c", desc: "Comprensión del lenguaje humano." },
-        bigdata: { titulo: "Big Data", img: "https://www.edsrobotics.com/wp-content/uploads/2021/02/big-data-ventajas-y-desventajas.jpg", desc: "Análisis masivo de datos." }
+
+        apps: {
+            titulo: "Creación de Aplicaciones",
+            img: "apps.jpg",
+            desc: "Esta actividad es el núcleo de la carrera. No se trata solo de escribir código, sino de aplicar la Ingeniería de Software para resolver problemas reales. En el ITSA, empezarás con la lógica de programación y evolucionarás hacia el desarrollo de aplicaciones robustas usando lenguajes como Java o C#. Aprenderás a diseñar la arquitectura de un programa, crear interfaces intuitivas para el usuario y conectar la lógica con bases de datos. El objetivo es que seas capaz de entregar un producto funcional, ya sea una app para gestión de inventarios o una herramienta móvil que solucione una necesidad específica de la región."
+        
+        },
+
+        bd: {
+            titulo: "Bases de Datos",
+            img: "basedatos.jpg",
+            desc: "Es la ciencia de organizar la información de manera masiva y eficiente. Aquí aprenderás a modelar datos utilizando diagramas entidad-relación para que la información no se duplique ni se pierda. Dominarás el lenguaje SQL para realizar consultas complejas en gestores como MySQL o PostgreSQL. En la práctica, esto significa que serás el arquitecto que decide cómo se guarda cada nombre, contraseña o venta en un sistema, garantizando que los datos estén disponibles en milisegundos cuando una aplicación los necesite."
+        },
+
+        redes: {
+            titulo: "Redes",
+            img: "redes.jpeg",
+            desc: "Esta actividad te enseña cómo se comunica el mundo. Estudiarás desde los fundamentos físicos (cableado estructurado) hasta la configuración lógica de los dispositivos. En los laboratorios, aprenderás a configurar Routers y Switches, a crear subredes para optimizar el tráfico de datos y a entender el modelo OSI. Es la habilidad técnica para diseñar la infraestructura de comunicación de una oficina o una planta industrial, asegurando que el internet y los servicios internos funcionen sin interrupciones."
+        },
+
+        ciber: {
+            titulo: "Ciberseguridad",
+            img: "ciberseguridad.jpg",
+            desc: "Aquí te conviertes en el guardián de la información. La actividad consiste en identificar vulnerabilidades en sistemas y redes para aplicar medidas preventivas. Aprenderás sobre criptografía para proteger mensajes, configuración de Firewalls para bloquear intrusos y protocolos de autenticación segura. En el Tec, el enfoque es ético: entenderás cómo atacan los hackers para poder diseñar defensas sólidas que protejan los activos digitales de las empresas contra virus, secuestro de datos (ransomware) o filtraciones."
+        },
+
+        hardware: {
+            titulo: "Ensamblaje y Mantenimiento",
+            img: "hardware.jpg",
+            desc: "Es la parte más tangible de la informática. Aprenderás la arquitectura de computadoras a fondo: reconocerás cada componente como el procesador, la memoria RAM y la tarjeta madre. La actividad incluye el diagnóstico de fallas de hardware, la aplicación de mantenimiento preventivo (limpieza y pasta térmica) y el mantenimiento correctivo (reparación de piezas). Es fundamental para que un ingeniero sepa qué equipo recomendar para cada tarea y cómo mantener una infraestructura física en estado óptimo."
+        },
+
+        web: {
+            titulo: "Creación de Páginas Web",
+            img: "web.jpg",
+            desc: "Esta área combina programación con diseño. Aprenderás tecnologías de Frontend (HTML5, CSS3, JavaScript) para que los sitios se vean profesionales en cualquier dispositivo, y tecnologías de Backend (como PHP o Python) para que el sitio pueda procesar información. En el ITSA, realizarás proyectos donde creas plataformas completas, desde una página informativa hasta un e-commerce donde se puedan realizar transacciones y gestionar usuarios en tiempo real."
+        },
+
+        ml: {
+            titulo: "Machine Learning",
+            img: "machinelearning.jpg",
+            desc: "Es una de las ramas más avanzadas de la Inteligencia Artificial que verás en tu formación. Consiste en alimentar algoritmos con grandes volúmenes de datos para que la computadora aprenda a identificar patrones y tomar decisiones por sí misma. Usando lenguajes como Python, desarrollarás modelos que pueden predecir ventas, clasificar imágenes o detectar fraudes. Es llevar la informática al siguiente nivel: de programas que siguen órdenes a programas que aprenden de la experiencia."
+        },
+
+        so: {
+            titulo: "Sistemas Operativos",
+            img: "sistemasoperativos.jpg",
+            desc: "Aprenderás que hay vida más allá de Windows. Esta actividad se centra en entender cómo el software administra los recursos del hardware (memoria, disco, procesador). Te volverás un experto manejando la terminal de Linux, que es el estándar de la industria para servidores y supercomputadoras. Aprenderás a gestionar usuarios, permisos de archivos y automatización de tareas mediante scripts, una habilidad obligatoria para cualquier administrador de sistemas o desarrollador profesional."
+        },
+
+        embebidos: {
+            titulo: "Sistemas Embebidos",
+            img: "embebidos.jpeg",
+            desc: "Es la computación aplicada al mundo físico y el Internet de las Cosas (IoT). Aprenderás a programar microcontroladores como Arduino o Raspberry Pi para interactuar con el entorno mediante sensores (de luz, humedad, calor) y actuadores (motores, luces). En el entorno del TecNM Acayucan, esta actividad es ideal para proyectos de agrotecnología, como crear invernaderos inteligentes o sistemas de monitoreo automático para el sector ganadero."
+        }
     };
+
     const info = contenidos[tipo];
+
     if (info) {
         lab.innerHTML = `
             <div class="row align-items-center">
-                <div class="col-md-6"><img src="${info.img}" class="lab-image shadow mb-3"></div>
-                <div class="col-md-6"><h3>${info.titulo}</h3><p>${info.desc}</p></div>
+                <div class="col-md-6">
+                    <img src="${info.img}" class="lab-image shadow mb-3">
+                </div>
+                <div class="col-md-6">
+                    <h3>${info.titulo}</h3>
+                 <p style="text-align: justify;">${info.desc}</p>
+                </div>
             </div>`;
     }
 }
