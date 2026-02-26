@@ -675,7 +675,7 @@ function obtenerRespuesta(mensajeUsuario) {
     return "Interesante pregunta 🤔. Actualmente puedo ayudarte con información sobre inscripciones, perfil académico y actividades.";
 }
 
-function handleBotResponse() {
+async function handleBotResponse() {
     const input = document.getElementById('userInput');
     const chatMessages = document.getElementById('chatMessages');
     const textoOriginal = input.value.trim();
@@ -683,9 +683,28 @@ function handleBotResponse() {
     if (!textoOriginal) return;
 
     chatMessages.innerHTML += `<div class="msg user-msg">${textoOriginal}</div>`;
+    input.value = "";
 
-    const respuesta = obtenerRespuesta(textoOriginal);
+    try {
+        const response = await fetch("https://tecnobot-backend.onrender.com", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                message: textoOriginal
+            })
+        });
 
+        const data = await response.json();
+
+        chatMessages.innerHTML += `<div class="msg bot-msg">${data.reply}</div>`;
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    } catch (error) {
+        chatMessages.innerHTML += `<div class="msg bot-msg">Error al conectar con el servidor.</div>`;
+    }
+}
     setTimeout(() => {
         chatMessages.innerHTML += `<div class="msg bot-msg">${respuesta}</div>`;
         chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -728,6 +747,7 @@ document.getElementById("formInscripcion").addEventListener("submit", async (e) 
 
 </body>
 </html>
+
 
 
 
