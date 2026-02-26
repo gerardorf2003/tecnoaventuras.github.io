@@ -705,13 +705,7 @@ async function handleBotResponse() {
         chatMessages.innerHTML += `<div class="msg bot-msg">Error al conectar con el servidor.</div>`;
     }
 }
-    setTimeout(() => {
-        chatMessages.innerHTML += `<div class="msg bot-msg">${respuesta}</div>`;
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }, 400);
-
-    input.value = "";
-}
+    
 </script>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
@@ -747,6 +741,7 @@ document.getElementById("formInscripcion").addEventListener("submit", async (e) 
 
 </body>
 </html>
+
 
 
 
